@@ -138,7 +138,6 @@ FROM CovidDeaths
 WHERE continent IS NOT NULL
 ORDER BY 1,2;
 ```
-
 <img width="657" height="408" alt="image" src="https://github.com/user-attachments/assets/b7c45bb8-a305-4149-ad86-4765ee026d1c" />
 
 ---
@@ -217,7 +216,6 @@ WHERE continent = 'Europe'
 GROUP BY continent,Location, population
 ORDER BY PopulationInfectedPercentage DESC;
 ```
-
 <img width="667" height="451" alt="image" src="https://github.com/user-attachments/assets/245b7fbb-eb0f-4eaa-94d8-a28683752eb5" />
 
 
@@ -273,7 +271,22 @@ Combined deaths and vaccination datasets to analyze vaccination progress over ti
 A rolling cumulative vaccination count was calculated for each country using window functions.
 
 ```sql
+WITH PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated) AS 
+(
+SELECT cd.continent, cd.location, cd.date, cd.population, cv.new_vaccinations
+, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date) as RollingPeopleVaccinated
+FROM CovidDeaths cd
+JOIN CovidVaccinations cv
+	ON cd.location = cv.location
+	AND cd.date = cv.date
+WHERE cd.continent IS NOT NULL --AND cd.location = 'Brazil'
+-- ORDER BY 1,2,3
+)
+SELECT *, (RollingPeopleVaccinated/Population)*100
+FROM PopvsVac
+ORDER BY Continent, Location, Date
 ```
+<img width="947" height="246" alt="image" src="https://github.com/user-attachments/assets/71c4bfb6-4b3a-47b1-8349-5ade83fd055a" />
 
 ---
 
