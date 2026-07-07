@@ -189,7 +189,8 @@ Identified:
 ```
 - Countries with the highest death counts
 ```sql
-SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population, MAX((total_cases/population))*100 as PopulationInfectedPercentage 
+SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population,
+MAX((total_cases/population))*100 as PopulationInfectedPercentage 
 FROM CovidDeaths
 WHERE continent is not null
 GROUP BY continent,Location, population
