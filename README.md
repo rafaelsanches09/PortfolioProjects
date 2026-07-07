@@ -185,7 +185,6 @@ Identified:
 
 - Countries with the highest infection rates
 
-```
 - Countries with the highest death counts
 ```sql
 SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population,
