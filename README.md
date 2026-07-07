@@ -139,6 +139,8 @@ WHERE continent IS NOT NULL
 ORDER BY 1,2;
 ```
 
+<img width="657" height="408" alt="image" src="https://github.com/user-attachments/assets/b7c45bb8-a305-4149-ad86-4765ee026d1c" />
+
 ---
 
 ### 3. Case Fatality Analysis
@@ -155,6 +157,7 @@ FROM CovidDeaths
 WHERE continent IS NOT NULL
 ORDER BY 1,2;
 ```
+<img width="752" height="426" alt="image" src="https://github.com/user-attachments/assets/bd4b234b-fcd8-44ee-98d9-96386824e4af" />
 
 
 ---
