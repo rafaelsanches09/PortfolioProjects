@@ -311,6 +311,7 @@ JOIN CovidVaccinations cv
 SELECT *, (RollingPeopleVaccinated/Population)*100 AS PercentPopulationVaccinated
 FROM #PercentPopulationVaccinated
 ORDER BY Continent, Location, Date
+```
 
 ```sql
 CREATE VIEW PercentPopulationVaccinated AS
