@@ -227,7 +227,13 @@ ORDER BY PopulationInfectedPercentage DESC;
 Aggregated data by continent to compare total death counts across regions.
 
 ```sql
+SELECT location, MAX(CAST(total_deaths as INT)) as TotalDeathCount
+FROM CovidDeaths
+WHERE continent IS NULL
+GROUP BY location
+ORDER BY TotalDeathCount DESC;
 ```
+<img width="293" height="227" alt="image" src="https://github.com/user-attachments/assets/8086d1b4-b55a-4fbf-807c-4172a0e1c3f3" />
 
 ---
 
@@ -235,14 +241,27 @@ Aggregated data by continent to compare total death counts across regions.
 
 Calculated worldwide figures including:
 
-- Total confirmed cases
-- Total deaths
-- Global death percentage
-
-Both cumulative and daily analyses were performed.
+- Daily Analysis: Total confirmed cases, Total deaths, Death Percentage
 
 ```sql
+SELECT date, SUM(new_cases) as Total_Cases, SUM(cast(new_deaths as int)) as Total_deaths, SUM(cast(new_deaths as int))*100/SUM(new_cases) as Death_Percentage
+FROM CovidDeaths
+WHERE continent IS NOT NULL
+GROUP BY date
+ORDER BY 1,2
 ```
+<img width="561" height="457" alt="image" src="https://github.com/user-attachments/assets/0c0745b4-04d5-46be-a717-e584e21ab600" />
+
+- Comulative Analysis: Total confirmed cases, Total deaths, Death Percentage
+
+```sql
+SELECT SUM(new_cases) as Total_Cases, SUM(cast(new_deaths as int)) as Total_deaths, SUM(cast(new_deaths as int))*100/SUM(new_cases) as Death_Percentage
+FROM CovidDeaths
+WHERE continent IS NOT NULL
+ORDER BY 1,2
+```
+<img width="392" height="87" alt="image" src="https://github.com/user-attachments/assets/2bfd63e9-c5d9-4782-864c-27088cfded40" />
+  
 
 ---
 
