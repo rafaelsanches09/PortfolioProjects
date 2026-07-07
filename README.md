@@ -1,82 +1,42 @@
-# COVID-19 Data Analysis with SQL
+# COVID-19 Data Exploration using SQL
 
 ## Project Overview
-
 COVID-19 is an infectious disease caused by the SARS-CoV-2 virus that spread globally in 2020. Its extensive public datasets provide an opportunity to explore real-world data using SQL and uncover trends related to infections, deaths, and vaccination efforts.
 
 ## Objectives
 
-- Analyze the progression of COVID-19 worldwide.
-- Compare infection and mortality rates between countries.
-- Explore vaccination trends.
-- Practice advanced SQL querying techniques.
-
 ## Dataset
 
-Source: Our World in Data (COVID-19 Dataset)
+## Database Structure
 
-The dataset includes:
-- Daily cases
-- Deaths
-- Vaccinations
-- Population
-- Testing information
+## SQL Skills Demonstrated
 
-## Tools & Technologies
+## Analysis Workflow
 
-- SQL Server
-- SQL
-- Git
-- GitHub
+### 1. Initial Data Exploration
 
-## Business Questions
+### 2. Selecting Relevant Data
 
-Some examples:
+### 3. Case Fatality Analysis
 
-- Which countries had the highest infection rates?
-- Which countries recorded the highest death counts?
-- How did vaccination campaigns evolve over time?
-- What percentage of the population became infected?
-- How did deaths compare to confirmed cases?
+### 4. Infection Rate Analysis
 
-## SQL Techniques Used
+### 5. Country-Level Comparisons
 
-- CTEs
-- Temporary Tables
-- Window Functions
-- Aggregate Functions
-- Joins
-- Views
-- Data Type Conversion
-- CASE Statements
+### 6. Continental Analysis
 
-## Project Structure
+### 7. Global Statistics
 
-```
-├── COVID Portfolio Project.sql
-├── README.md
-└── dataset/
-```
+### 8. Vaccination Analysis
 
-## Key Insights
+### 9. Advanced SQL Features
 
-- Countries with larger populations did not necessarily have the highest infection rates.
-- Vaccination rollouts varied significantly across regions.
-- Window functions were useful for calculating cumulative vaccinations over time.
+## Key Findings
+
+## Repository Structure
 
 ## How to Run
 
-1. Download the dataset.
-2. Import it into SQL Server.
-3. Execute the SQL script.
-4. Explore the results.
-
 ## Future Improvements
 
-- Build a Power BI dashboard.
-- Automate data updates.
-- Add trend forecasting.
-
 ## Author
-
-Rafael Sanches
