@@ -131,6 +131,10 @@ During the initial exploration, it was observed that some records have NULL valu
 Only the columns required for the analysis are selected to improve readability and focus.
 
 ```sql
+SELECT Location, date, total_cases, new_cases, total_deaths, population
+FROM CovidDeaths
+WHERE continent IS NOT NULL
+ORDER BY 1,2;
 ```
 
 ---
@@ -144,6 +148,10 @@ Calculated the percentage of deaths relative to confirmed COVID-19 cases for eac
 > How likely was a confirmed COVID-19 case to result in death?
 
 ```sql
+SELECT Location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as DeathPercentage 
+FROM CovidDeaths
+WHERE continent IS NOT NULL
+ORDER BY 1,2;
 ```
 
 
@@ -158,6 +166,10 @@ Compared confirmed cases against each country's population to measure infection 
 > What percentage of each country's population was infected?
 
 ```sql
+SELECT Location, date, total_cases, population, (total_cases/population)*100 as PopulationInfectedPercentage 
+FROM CovidDeaths
+WHERE continent IS NOT NULL
+ORDER BY 1,2;
 ```
 
 ---
@@ -167,12 +179,36 @@ Compared confirmed cases against each country's population to measure infection 
 Identified:
 
 - Countries with the highest infection rates
-- Countries with the highest death counts
-- Regional comparisons for South America
-- Regional comparisons for Europe
 
-```sql
 ```
+- Countries with the highest death counts
+```sql
+SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population, MAX((total_cases/population))*100 as PopulationInfectedPercentage 
+FROM CovidDeaths
+WHERE continent is not null
+GROUP BY continent,Location, population
+ORDER BY PopulationInfectedPercentage DESC;
+```
+
+- Regional comparisons for South America
+```sql
+SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population, MAX((total_cases/population))*100 as PopulationInfectedPercentage 
+FROM CovidDeaths
+WHERE continent = 'South America'
+GROUP BY continent,Location, population
+ORDER BY PopulationInfectedPercentage DESC;
+```
+  
+- Regional comparisons for Europe
+```sql
+SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population, MAX((total_cases/population))*100 as PopulationInfectedPercentage 
+FROM CovidDeaths
+WHERE continent = 'Europe'
+GROUP BY continent,Location, population
+ORDER BY PopulationInfectedPercentage DESC;
+
+```
+
 
 ---
 
