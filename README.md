@@ -114,11 +114,14 @@ The analysis begins by inspecting both datasets to understand their structure an
 SELECT * 
 FROM dbo.Coviddeaths
 ORDER BY 3, 4;
+```
 
+```sql
 SELECT * 
 FROM dbo.Covidvaccinations
 ORDER BY 3, 4;
 ```
+During the initial exploration, it was observed that some records have NULL values in the continent column. These rows represent aggregated data (such as continents or global totals) rather than individual countries. Since this analysis focuses on country-level metrics, these records are excluded from subsequent queries.
 ---
 
 ### 2. Selecting Relevant Data
