@@ -143,6 +143,10 @@ Calculated the percentage of deaths relative to confirmed COVID-19 cases for eac
 
 > How likely was a confirmed COVID-19 case to result in death?
 
+```sql
+```
+
+
 ---
 
 ### 4. Infection Rate Analysis
@@ -152,6 +156,9 @@ Compared confirmed cases against each country's population to measure infection 
 **Question answered:**
 
 > What percentage of each country's population was infected?
+
+```sql
+```
 
 ---
 
@@ -164,11 +171,17 @@ Identified:
 - Regional comparisons for South America
 - Regional comparisons for Europe
 
+```sql
+```
+
 ---
 
 ### 6. Continental Analysis
 
 Aggregated data by continent to compare total death counts across regions.
+
+```sql
+```
 
 ---
 
@@ -182,6 +195,9 @@ Calculated worldwide figures including:
 
 Both cumulative and daily analyses were performed.
 
+```sql
+```
+
 ---
 
 ### 8. Vaccination Analysis
@@ -189,6 +205,9 @@ Both cumulative and daily analyses were performed.
 Combined deaths and vaccination datasets to analyze vaccination progress over time.
 
 A rolling cumulative vaccination count was calculated for each country using window functions.
+
+```sql
+```
 
 ---
 
