@@ -115,13 +115,14 @@ SELECT *
 FROM dbo.Coviddeaths
 ORDER BY 3, 4;
 ```
+<img width="1881" height="381" alt="image" src="https://github.com/user-attachments/assets/3c1c43ec-2f21-49a6-b0fc-50ed8ab27e54" />
 
 ```sql
 SELECT * 
 FROM dbo.Covidvaccinations
 ORDER BY 3, 4;
 ```
-<img width="1881" height="381" alt="image" src="https://github.com/user-attachments/assets/3c1c43ec-2f21-49a6-b0fc-50ed8ab27e54" />
+<img width="1875" height="393" alt="image" src="https://github.com/user-attachments/assets/9e3a9d23-faf4-479b-804e-e1e6bf3c0785" />
 
 During the initial exploration, it was observed that some records have NULL values in the continent column. These rows represent aggregated data (such as continents or global totals) rather than individual countries. Since this analysis focuses on country-level metrics, these records are excluded from subsequent queries.
 
