@@ -198,7 +198,8 @@ ORDER BY PopulationInfectedPercentage DESC;
 
 - Regional comparisons for South America
 ```sql
-SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population, MAX((total_cases/population))*100 as PopulationInfectedPercentage 
+SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population,
+MAX((total_cases/population))*100 as PopulationInfectedPercentage 
 FROM CovidDeaths
 WHERE continent = 'South America'
 GROUP BY continent,Location, population
@@ -209,7 +210,8 @@ ORDER BY PopulationInfectedPercentage DESC;
   
 - Regional comparisons for Europe
 ```sql
-SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population, MAX((total_cases/population))*100 as PopulationInfectedPercentage 
+SELECT continent,Location, MAX(total_cases) as HighestInfectionCount, population,
+MAX((total_cases/population))*100 as PopulationInfectedPercentage 
 FROM CovidDeaths
 WHERE continent = 'Europe'
 GROUP BY continent,Location, population
@@ -242,7 +244,8 @@ Calculated worldwide figures including:
 - Daily Analysis: Total confirmed cases, Total deaths, Death Percentage
 
 ```sql
-SELECT date, SUM(new_cases) as Total_Cases, SUM(cast(new_deaths as int)) as Total_deaths, SUM(cast(new_deaths as int))*100/SUM(new_cases) as Death_Percentage
+SELECT date, SUM(new_cases) as Total_Cases, SUM(cast(new_deaths as int)) as Total_deaths,
+SUM(cast(new_deaths as int))*100/SUM(new_cases) as Death_Percentage
 FROM CovidDeaths
 WHERE continent IS NOT NULL
 GROUP BY date
@@ -253,7 +256,8 @@ ORDER BY 1,2
 - Comulative Analysis: Total confirmed cases, Total deaths, Death Percentage
 
 ```sql
-SELECT SUM(new_cases) as Total_Cases, SUM(cast(new_deaths as int)) as Total_deaths, SUM(cast(new_deaths as int))*100/SUM(new_cases) as Death_Percentage
+SELECT SUM(new_cases) as Total_Cases, SUM(cast(new_deaths as int)) as Total_deaths,
+SUM(cast(new_deaths as int))*100/SUM(new_cases) as Death_Percentage
 FROM CovidDeaths
 WHERE continent IS NOT NULL
 ORDER BY 1,2
@@ -273,7 +277,8 @@ A rolling cumulative vaccination count was calculated for each country using win
 WITH PopvsVac (Continent, Location, Date, Population, New_Vaccinations, RollingPeopleVaccinated) AS 
 (
 SELECT cd.continent, cd.location, cd.date, cd.population, cv.new_vaccinations
-, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date) as RollingPeopleVaccinated
+, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date)
+as RollingPeopleVaccinated
 FROM CovidDeaths cd
 JOIN CovidVaccinations cv
 	ON cd.location = cv.location
@@ -303,7 +308,8 @@ RollingPeopleVaccinated numeric
 
 INSERT INTO #PercentPopulationVaccinated
 SELECT cd.continent, cd.location, cd.date, cd.population, cv.new_vaccinations
-, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date) as RollingPeopleVaccinated
+, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date)
+as RollingPeopleVaccinated
 FROM CovidDeaths cd
 JOIN CovidVaccinations cv
 	ON cd.location = cv.location
@@ -316,7 +322,8 @@ ORDER BY Continent, Location, Date
 ```sql
 CREATE VIEW PercentPopulationVaccinated AS
 (SELECT cd.continent, cd.location, cd.date, cd.population, cv.new_vaccinations
-, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date) as RollingPeopleVaccinated
+, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date)
+as RollingPeopleVaccinated
 FROM CovidDeaths cd
 JOIN CovidVaccinations cv
 	ON cd.location = cv.location
