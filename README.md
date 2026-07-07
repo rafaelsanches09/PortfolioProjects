@@ -4,6 +4,13 @@
 COVID-19 is an infectious disease caused by the SARS-CoV-2 virus that spread globally in 2020. Its extensive public datasets provide an opportunity to explore real-world data using SQL and uncover trends related to infections, deaths, and vaccination efforts.
 
 ## Objectives
+- Exploring COVID-19 trends across countries
+- Comparing infection and mortality rates
+- Analyzing global statistics over time
+- Evaluating vaccination progress
+- Demonstrating advanced SQL querying techniques
+
+---
 
 ## Dataset
 The analysis is based on two relational tables extracted from the **Our World in Data COVID-19 dataset**.
