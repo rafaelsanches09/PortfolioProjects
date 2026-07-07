@@ -114,3 +114,4 @@ This relationship enables the combination of case, death, population, and vaccin
 ## Future Improvements
 
 ## Author
+**Rafael Sanches**
