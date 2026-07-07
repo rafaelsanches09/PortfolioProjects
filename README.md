@@ -287,7 +287,7 @@ ORDER BY Continent, Location, Date
 ```
 <img width="947" height="246" alt="image" src="https://github.com/user-attachments/assets/71c4bfb6-4b3a-47b1-8349-5ade83fd055a" />
 
-Creating a temp table and a view
+### 9. Creating a temp table and a view
 
 ```sql
 DROP TABLE IF EXISTS #PercentPopulationVaccinated
