@@ -287,6 +287,45 @@ ORDER BY Continent, Location, Date
 ```
 <img width="947" height="246" alt="image" src="https://github.com/user-attachments/assets/71c4bfb6-4b3a-47b1-8349-5ade83fd055a" />
 
+Creating a temp table and a view
+
+```sql
+DROP TABLE IF EXISTS #PercentPopulationVaccinated
+CREATE TABLE #PercentPopulationVaccinated 
+(
+Continent nvarchar(255),
+Location nvarchar(255),
+Date datetime,
+Population numeric,
+new_vaccination numeric,
+RollingPeopleVaccinated numeric
+) 
+
+INSERT INTO #PercentPopulationVaccinated
+SELECT cd.continent, cd.location, cd.date, cd.population, cv.new_vaccinations
+, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date) as RollingPeopleVaccinated
+FROM CovidDeaths cd
+JOIN CovidVaccinations cv
+	ON cd.location = cv.location
+	AND cd.date = cv.date
+SELECT *, (RollingPeopleVaccinated/Population)*100 AS PercentPopulationVaccinated
+FROM #PercentPopulationVaccinated
+ORDER BY Continent, Location, Date
+
+```sql
+CREATE VIEW PercentPopulationVaccinated AS
+(SELECT cd.continent, cd.location, cd.date, cd.population, cv.new_vaccinations
+, SUM(cast(cv.new_vaccinations as int)) OVER (PARTITION BY  cd.location ORDER BY cd.location, cd.date) as RollingPeopleVaccinated
+FROM CovidDeaths cd
+JOIN CovidVaccinations cv
+	ON cd.location = cv.location
+	AND cd.date = cv.date
+WHERE cd.continent IS NOT NULL)
+
+SELECT *
+FROM PercentPopulationVaccinated
+```
+
 ---
 
 ### 9. Advanced SQL Features
