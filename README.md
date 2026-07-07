@@ -110,11 +110,23 @@ This relationship enables the combination of case, death, population, and vaccin
 
 The analysis begins by inspecting both datasets to understand their structure and available fields.
 
+```sql
+SELECT * 
+FROM dbo.Coviddeaths
+ORDER BY 3, 4;
+
+SELECT * 
+FROM dbo.Covidvaccinations
+ORDER BY 3, 4;
+```
 ---
 
 ### 2. Selecting Relevant Data
 
 Only the columns required for the analysis are selected to improve readability and focus.
+
+```sql
+```
 
 ---
 
