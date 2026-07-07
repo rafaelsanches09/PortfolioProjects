@@ -122,8 +122,7 @@ FROM CovidDeaths cd
 JOIN CovidVaccinations cv
 	ON cd.location = cv.location
 	AND cd.date = cv.date
-WHERE cd.continent IS NOT NULL --AND cd.location = 'Brazil'
--- ORDER BY 1,2,3
+WHERE cd.continent IS NOT NULL
 )
 SELECT *, (RollingPeopleVaccinated/Population)*100
 FROM PopvsVac
@@ -149,8 +148,6 @@ FROM CovidDeaths cd
 JOIN CovidVaccinations cv
 	ON cd.location = cv.location
 	AND cd.date = cv.date
--- WHERE cd.continent IS NOT NULL --AND cd.location = 'Brazil'
--- ORDER BY 1,2,3
 SELECT *, (RollingPeopleVaccinated/Population)*100 AS PercentPopulationVaccinated
 FROM #PercentPopulationVaccinated
 ORDER BY Continent, Location, Date
