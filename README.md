@@ -6,14 +6,11 @@ COVID-19 is an infectious disease caused by the SARS-CoV-2 virus that spread glo
 ## Objectives
 
 ## Dataset
-
-## Database Structure
-## Data Structure
-
 The analysis is based on two relational tables extracted from the **Our World in Data COVID-19 dataset**.
 
-### Table: `CovidDeaths`
+## Database Structure
 
+### Table: `CovidDeaths`
 Contains daily records related to COVID-19 cases and deaths for each country.
 
 | Column | Description |
