@@ -176,6 +176,7 @@ FROM CovidDeaths
 WHERE continent IS NOT NULL
 ORDER BY 1,2;
 ```
+<img width="700" height="407" alt="image" src="https://github.com/user-attachments/assets/8397c349-36cc-4997-95db-2892d24acaa4" />
 
 ---
 
@@ -194,6 +195,7 @@ WHERE continent is not null
 GROUP BY continent,Location, population
 ORDER BY PopulationInfectedPercentage DESC;
 ```
+<img width="711" height="415" alt="image" src="https://github.com/user-attachments/assets/feac7f0c-0fe7-48b7-8c4f-52657d035fca" />
 
 - Regional comparisons for South America
 ```sql
@@ -203,6 +205,8 @@ WHERE continent = 'South America'
 GROUP BY continent,Location, population
 ORDER BY PopulationInfectedPercentage DESC;
 ```
+<img width="727" height="351" alt="image" src="https://github.com/user-attachments/assets/8997cd84-cd15-47fa-b76e-cbc25fff70cb" />
+
   
 - Regional comparisons for Europe
 ```sql
@@ -211,8 +215,9 @@ FROM CovidDeaths
 WHERE continent = 'Europe'
 GROUP BY continent,Location, population
 ORDER BY PopulationInfectedPercentage DESC;
-
 ```
+
+<img width="667" height="451" alt="image" src="https://github.com/user-attachments/assets/245b7fbb-eb0f-4eaa-94d8-a28683752eb5" />
 
 
 ---
