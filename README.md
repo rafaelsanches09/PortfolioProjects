@@ -1,5 +1,11 @@
 # REST API Fundamentals – Study Project
 
+![Status](https://img.shields.io/badge/Status-Completed-success)
+![REST API](https://img.shields.io/badge/REST-API-blue)
+![HTTP](https://img.shields.io/badge/HTTP-Methods-orange)
+![Business Analysis](https://img.shields.io/badge/IT-Business%20Analysis-6f42c1)
+![Learning Project](https://img.shields.io/badge/Project-Learning-brightgreen)
+
 ## Overview
 
 This repository contains a simple REST API project created as part of a hands-on learning exercise focused on understanding how RESTful services work.
